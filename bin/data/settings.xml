@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<group>
+	<Main_Paramters>
+		<eRad>1000</eRad>
+		<velRad>1000</velRad>
+		<lifeTime>10</lifeTime>
+		<rotate>-326.939</rotate>
+		<force>10</force>
+		<spin>10</spin>
+		<friction>0.05</friction>
+	</Main_Paramters>
+	<history>5</history>
+	<bornRate>6.75</bornRate>
+	<bornCount>0.945387</bornCount>
+</group>
