@@ -100,7 +100,7 @@ void Particle::draw(){
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetFrameRate( 60 );    //Set screen frame rate
-    cam.setDistance(160);
+    cam.setDistance(1000);
     //Allocate drawing buffer
     int w = ofGetWidth();
     int h = ofGetHeight();
@@ -108,7 +108,7 @@ void ofApp::setup(){
     
     //Fill buffer with white color
     fbo.begin();
-    ofBackground(255);
+    ofBackground(0);
     fbo.end();
     
     //Set up parameters
@@ -123,17 +123,12 @@ void ofApp::setup(){
     gui.add(bornCount.set("bornCount", 0, 0, 3000));
     gui.add(clear.setup("clear"));
     
-//    parameterGroup.add(param.appParameters);
-    
-//    history = 5;
-//    bornRate = 10;
-    
-//    bornCount = 10;
     time0 = ofGetElapsedTimef();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+
     //Compute dt
     float time = ofGetElapsedTimef();
     float dt = ofClamp( time - time0, 0, 0.1 );
@@ -172,25 +167,26 @@ void ofApp::update(){
 void ofApp::draw(){
     ofBackground(255,255,255);  //Set white background
     
-   
-    
+//     gui.draw();
+//    cam.begin();
+//    ofScale (-1,-1,-1);
     //1. Drawing to buffer
     
     fbo.begin();
     gui.draw();
-//    cam.begin();
+    
     //Draw semi-transparent white rectangle
     //to slightly clearing a buffer (depends on history value)
     
-//    ofEnableAlphaBlending();         //Enable transparency
+    ofEnableAlphaBlending();         //Enable transparency
+
+    float alpha = (1-history) * 255;
+    ofSetColor( 255, 255, 255, alpha );
+    ofFill();
+    ofRectangle( 0, 0, ofGetWidth(), ofGetHeight() );
+
+    ofDisableAlphaBlending();        //Disable transparency
 //
-//    float alpha = (1-history) * 255;
-//    ofSetColor( 255, 255, 255, alpha );
-//    ofFill();
-//    ofRectangle( 0, 0, ofGetWidth(), ofGetHeight() );
-//
-//    ofDisableAlphaBlending();        //Disable transparency
-    
     
     //Draw the particles
     
@@ -198,14 +194,13 @@ void ofApp::draw(){
     for (int i=0; i<p.size(); i++) {
         p[i].draw();
     }
-//    cam.end();
     fbo.end();
     
     
     //2. Draw buffer on the screen
     ofSetColor( 255, 255, 255 );
     fbo.draw( 0, 0 );
-   
+//   cam.end();
 }
 
 //--------------------------------------------------------------
