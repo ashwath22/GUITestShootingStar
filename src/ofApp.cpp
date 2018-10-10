@@ -15,7 +15,7 @@ void Params::setup() {
     paramParameters.add(lifeTime.set("lifeTime", 10, 0, 100));
 
     paramParameters.add(rotate.set("rotate", 10, -360, 360));
-    paramParameters.add(force.set("force", 10, -100, 100));
+    paramParameters.add(force.set("force", 10, -1000, 1000));
     paramParameters.add(spinning.set("spin", 10, -360, 360));
     paramParameters.add(friction.set("friction", 0.05, -0.3, 0.3));
 }
