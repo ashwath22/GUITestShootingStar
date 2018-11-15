@@ -86,8 +86,8 @@ void Particle::draw(){
         float size = ofMap(fabs(time - lifeTime/2), 0, lifeTime/2, 0, 1 );
         
         //Compute color
-        ofColor color = ofColor::red;
-        float hue = ofMap( time, 0, lifeTime, 180, 255 );
+        ofColor color = ofColor::blue;
+        float hue = ofMap( time, 0, lifeTime, 10, 255 );
         color.setHue( hue );
         ofSetColor( color );
         

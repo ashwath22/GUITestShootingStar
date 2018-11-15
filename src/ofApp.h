@@ -98,7 +98,8 @@ class ofApp : public ofBaseApp{
     ofParameter<float> history;        //Control parameter for trails
     ofParameter<float> bornRate;       //Particles born rate per second
     ofParameter<float> bornCount;      //Integrated number of particles to born
-    ofParameterGroup parameterGroup;//        ofParameterGroup appParameters;
+    ofParameterGroup parameterGroup;   //ofParameterGroup appParameters;
+    ofParameterGroup parameterGroup2;   //ofParameterGroup appParameters;
     
     ofEasyCam cam;
 };
